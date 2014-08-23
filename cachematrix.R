@@ -29,10 +29,11 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## The cacheSolve function determines if mat
+## The cacheSolve function determines if inverse of the S matrix has been cached in the global environment.
+## If cache exist, cache inverse matrix is returned. If not exists, inverse S matrix is calculated, cached to global
+## environment and returned.  
 cacheSolve <- function(x, ...) {
-        ## Return a matrix that is the inverse of 'x'
-    s <- x$getSolve()
+     s <- x$getSolve()
     
     if(is.null(s)) {
         data <- x$get()
